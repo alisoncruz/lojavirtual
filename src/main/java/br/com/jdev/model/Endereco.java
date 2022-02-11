@@ -53,7 +53,7 @@ public class Endereco implements Serializable {
 	private TipoEndereco tipoEndereco;
 
 	@ManyToOne(targetEntity = Pessoa.class)
-	@JoinColumn(name = "pessoa_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "pessoa_fk"))
+	@JoinColumn(name = "pessoa_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "endereco_pessoa_fk"))
 	private Pessoa pessoa;
 
 	public String getRua() {
