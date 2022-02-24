@@ -33,36 +33,34 @@ public class Endereco implements Serializable {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_endereco")
 	private Long id;
 
-	private String rua;
-
+	@Column(nullable = false)
 	private String logradouro;
 
+	@Column(nullable = false)
 	private String cep;
 
+	@Column(nullable = false)
 	private String numero;
 
 	private String complemento;
 
+	@Column(nullable = false)
 	private String bairro;
 
+	@Column(nullable = false)
 	private String uf;
 
+	@Column(nullable = false)
 	private String cidade;
-	
+
+	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
 	private TipoEndereco tipoEndereco;
 
 	@ManyToOne(targetEntity = Pessoa.class)
-	@JoinColumn(name = "pessoa_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "endereco_pessoa_fk"))
+	@JoinColumn(name = "pessoa_id", nullable = false, 
+	foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "endereco_pessoa_fk"))
 	private Pessoa pessoa;
-
-	public String getRua() {
-		return rua;
-	}
-
-	public void setRua(String rua) {
-		this.rua = rua;
-	}
 
 	public String getLogradouro() {
 		return logradouro;
@@ -127,7 +125,7 @@ public class Endereco implements Serializable {
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -160,9 +158,5 @@ public class Endereco implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
-	
-	
 
 }
